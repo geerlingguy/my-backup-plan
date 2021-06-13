@@ -10,9 +10,11 @@ Having a solid and multi-tiered backup plan gives you peace of mind and the free
 
 I follow a variant of the 3-2-1 backup strategy, and have _at least_:
 
-  3 Copies of all my data
-  2 Copies on different storage media
-  1 Offsite copy
+```
+3 Copies of all my data
+2 Copies on different storage media
+1 Offsite copy
+```
 
 And for some of my data (like the contents of my Dropbox or iCloud Photos Library) I have 4 or 5 copies of the data!
 
