@@ -28,6 +28,12 @@ TODO: Go over entire plan, top-to-bottom, including:
   - Local NAS
   - Local Time Machine
   - Amazon S3 Glacier Deep Archive
+  - Open Source repositories on GitHub
+  - Pi-hole config
+
+## `main.yml` - Ansible playbook to configure my Backup Pi
+
+TODO: Backup Pi configuration notes go here.
 
 ## `backup.sh` - Rclone to S3 Glacier Deep Archive
 

@@ -1,0 +1,15 @@
+---
+- hosts: backup
+  gather_facts: false
+
+  vars:
+    current_architecture: arm64
+
+  tasks:
+    - name: Unpack rclone latest archive.
+      ansible.builtin.unarchive:
+        src: "https://downloads.rclone.org/rclone-current-linux-{{ current_architecture }}.zip"
+        dest: ~/rclone-current-linux
+        remote_src: true
+
+    # TODO.
