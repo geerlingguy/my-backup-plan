@@ -1,0 +1,13 @@
+---
+rclone_arch: "arm64"
+rclone_version: ""
+
+# Remote server and volumes to mount.
+cifs_server: my.smb.server
+cifs_volumes:
+  - "Media"
+  - "Another Volume"
+
+# SMB credentials.
+cifs_username: backup
+cifs_password: ""

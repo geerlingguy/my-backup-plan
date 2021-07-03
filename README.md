@@ -33,11 +33,40 @@ TODO: Go over entire plan, top-to-bottom, including:
 
 ## `main.yml` - Ansible playbook to configure my Backup Pi
 
-TODO: Backup Pi configuration notes go here.
+There's an Ansible playbook that installs rclone, configures shared filesystem mounts, and configures a backup cron job. To run the playbook:
+
+  1. Make sure you have Ansible installed.
+  2. Copy `example.inventory.ini` to `inventory.ini` and `example.config.yml` to `config.yml`, and modify them according to your needs.
+  3. Run `ansible-galaxy install -r requirements.yml`
+  4. Run the playbook: `ansible-playbook main.yml`
+
+### Manual `rclone` setup
+
+For security purposes, I don't keep the entire `rclone` config in this repository. I could via Ansible Vault, but I don't. Sue me.
+
+So after running the playbook, for `rclone` to actually work, you'll need to do the following manually, one time:
+
+Run `rclone config` following the [S3 setup instructions](https://rclone.org/s3/#amazon-s3).
+
+  - Set the remote name to `personal`.
+  - Set the type of storage to `s3`.
+  - Set the S3 provider to `AWS`.
+  - For access credentials, I created a limited `rclone` user in AWS Console and have an access key set up for that user.
+  - Set the region to `us-east-1`.
+  - Set the ACL to `private`.
+  - Set the storage class to `DEEP_ARCHIVE`.
+
+Do all of this as the `pi` user (or whatever user you're going to configure to run the backups).
 
 ## `backup.sh` - Rclone to S3 Glacier Deep Archive
 
-TODO: `rclone config` for S3: https://rclone.org/s3/#amazon-s3
+You can manually run `backup.sh` the first time and watch it do its magic:
+
+```
+pi@backup:~ $ ./backup.sh 
+```
+
+The initial backup could take a while—mine took over two weeks :)
 
 Caveats with Glacier Deep Archive:
 

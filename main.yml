@@ -1,15 +1,35 @@
 ---
 - hosts: backup
-  gather_facts: false
+  become: true
 
-  vars:
-    current_architecture: arm64
+  vars_files:
+    - config.yml
+
+  roles:
+    - stefangweichinger.ansible_rclone
 
   tasks:
-    - name: Unpack rclone latest archive.
-      ansible.builtin.unarchive:
-        src: "https://downloads.rclone.org/rclone-current-linux-{{ current_architecture }}.zip"
-        dest: ~/rclone-current-linux
-        remote_src: true
+    - name: Copy backup script into place.
+      ansible.builtin.copy:
+        src: backup.sh
+        dest: ~/backup.sh
+        mode: 0755
+      become: false
 
-    # TODO.
+    - name: Create mount point directories.
+      ansible.builtin.file:
+        path: "/Volumes/{{ item }}"
+        state: directory
+        recurse: true
+      loop: "{{ cifs_volumes }}"
+
+    - name: Mount SMB volumes.
+      mount:
+        src: "//{{ cifs_server }}/{{ item }}"
+        path: "/Volumes/{{ item }}"
+        fstype: cifs
+        opts: 'username={{ cifs_username }},password={{ cifs_password }}'
+        state: mounted
+      loop: "{{ cifs_volumes }}"
+
+    # TODO: Add cron job to run `backup.sh` on schedule as Pi user.
