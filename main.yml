@@ -12,7 +12,7 @@
     - name: Copy backup script into place.
       ansible.builtin.copy:
         src: backup.sh
-        dest: ~/backup.sh
+        dest: /home/pi/backup.sh
         mode: 0755
       become: false
 
@@ -32,4 +32,12 @@
         state: mounted
       loop: "{{ cifs_volumes }}"
 
-    # TODO: Add cron job to run `backup.sh` on schedule as Pi user.
+    - name: Add cron job to run backup weekly, at 0300 on Sundays.
+      ansible.builtin.cron:
+        name: Run backup script.
+        minute: "0"
+        hour: "3"
+        weekday: "0"
+        job: /home/pi/backup.sh
+        state: present
+      become: false
