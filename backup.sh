@@ -8,8 +8,10 @@
 #
 # Script requires valid credentials - set up with `rclone config`.
 
+RCLONE=/usr/local/bin/rclone
+
 # Check if rclone is installed.
-if ! [ -x "$(command -v rclone)" ]; then
+if ! [ -x "$(command -v $RCLONE)" ]; then
   echo 'Error: rclone is not installed.' >&2
   exit 1
 fi
@@ -21,7 +23,7 @@ show_progress=true
 bandwidth_limit=23M
 
 # Make sure bucket exists.
-rclone mkdir $rclone_remote:$rclone_s3_bucket
+$RCLONE mkdir $rclone_remote:$rclone_s3_bucket
 
 # TODO
 # Back up "Video Projects" directory from Jeff's Mac mini.
@@ -33,6 +35,7 @@ rclone mkdir $rclone_remote:$rclone_s3_bucket
 
 # List of directories to clone. MUST be absolute path, beginning with /.
 declare -a dirs=(
+  "/Volumes/Brachiosaur/App Data"
   "/Volumes/Brachiosaur/Presentation Recordings"
   "/Volumes/Brachiosaur/Timelapses"
   "/Volumes/Brachiosaur/YouTube Videos"
@@ -48,5 +51,5 @@ for i in "${dirs[@]}"
 do
   echo "Syncing Directory: $i"
   despaced="${i// /_}"
-  rclone sync "$i" $rclone_remote:$rclone_s3_bucket"$despaced" --skip-links --progress --bwlimit $bandwidth_limit
+  $RCLONE sync "$i" $rclone_remote:$rclone_s3_bucket"$despaced" --skip-links --progress --bwlimit $bandwidth_limit
 done

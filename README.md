@@ -26,6 +26,7 @@ TODO: Go over entire plan, top-to-bottom, including:
   - iCloud Music Library + iTunes Match
   - Dropbox
   - Local NAS
+    - [NAS Settings backup]()
   - Local Time Machine
   - Amazon S3 Glacier Deep Archive
   - Open Source repositories on GitHub
