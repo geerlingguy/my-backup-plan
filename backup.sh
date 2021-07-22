@@ -46,10 +46,10 @@ declare -a dirs=(
   "/Volumes/Media/TV Shows"
 )
 
-# Clone each directory.
+# Clone each directory. Add `--progress` for nicer (but more verbose) output.
 for i in "${dirs[@]}"
 do
   echo "Syncing Directory: $i"
   despaced="${i// /_}"
-  $RCLONE sync "$i" $rclone_remote:$rclone_s3_bucket"$despaced" --skip-links --progress --bwlimit $bandwidth_limit
+  $RCLONE sync "$i" $rclone_remote:$rclone_s3_bucket"$despaced" --skip-links --bwlimit $bandwidth_limit
 done
