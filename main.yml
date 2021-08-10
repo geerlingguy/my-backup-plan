@@ -41,3 +41,13 @@
         job: /home/pi/backup.sh
         state: present
       become: false
+
+    - name: Ensure PoE fans on Pi are set correctly.
+      ansible.builtin.blockinfile:
+        path: /boot/config.txt
+        block: |
+          # PoE Hat Fan Speeds
+          dtparam=poe_fan_temp0=50000
+          dtparam=poe_fan_temp1=60000
+          dtparam=poe_fan_temp2=70000
+          dtparam=poe_fan_temp3=80000
