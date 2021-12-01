@@ -9,6 +9,11 @@
     - stefangweichinger.ansible_rclone
 
   tasks:
+    - name: Install mailutils.
+      ansible.builtin.apt:
+        name: mailutils
+        state: present
+
     - name: Copy backup script into place.
       ansible.builtin.copy:
         src: backup.sh
@@ -24,7 +29,7 @@
       loop: "{{ cifs_volumes }}"
 
     - name: Mount SMB volumes.
-      mount:
+      ansible.posix.mount:
         src: "//{{ cifs_server }}/{{ item }}"
         path: "/Volumes/{{ item }}"
         fstype: cifs
