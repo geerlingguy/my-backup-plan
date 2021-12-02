@@ -11,3 +11,9 @@ cifs_volumes:
 # SMB credentials.
 cifs_username: backup
 cifs_password: ""
+
+# Other setup vars.
+go_version: "1.17.3"
+go_platform: linux
+go_arch: arm64
+go_checksum: '06f505c8d27203f78706ad04e47050b49092f1b06dc9ac4fbee4f0e4d015c8d4'

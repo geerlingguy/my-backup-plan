@@ -7,6 +7,8 @@
 
   roles:
     - stefangweichinger.ansible_rclone
+    - geerlingguy.go
+    - gickup
 
   tasks:
     - name: Install mailutils.
@@ -14,12 +16,15 @@
         name: mailutils
         state: present
 
-    - name: Copy backup script into place.
+    - name: Copy backup scripts into place.
       ansible.builtin.copy:
-        src: backup.sh
-        dest: /home/pi/backup.sh
+        src: "{{ item }}"
+        dest: "/home/pi/{{ item }}"
         mode: 0755
       become: false
+      loop:
+        - backup.sh
+        - gickup.sh
 
     - name: Create mount point directories.
       ansible.builtin.file:
@@ -47,6 +52,17 @@
         state: present
       become: false
 
+    # - name: Add cron job to run gickup daily, at 0200.
+    #   ansible.builtin.cron:
+    #     name: Run gickup script.
+    #     minute: "0"
+    #     hour: "2"
+    #     weekday: "0"
+    #     job: /home/pi/gickup.sh
+    #     state: present
+    #   become: false
+
+    # System setup tasks.
     - name: Ensure PoE fans on Pi are set correctly.
       ansible.builtin.blockinfile:
         path: /boot/config.txt
