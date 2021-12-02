@@ -8,7 +8,7 @@
   pre_tasks:
     - name: Download and install gickup.
       ansible.builtin.unarchive:
-        src: https://github.com/cooperspencer/gickup/releases/download/v0.9/gickup_0.9_linux_arm64.tar.gz
+        src: https://github.com/cooperspencer/gickup/releases/download/v{{ gickup_version }}/gickup_{{ gickup_version }}_linux_arm64.tar.gz
         dest: /usr/local/bin
         remote_src: true
 
@@ -56,15 +56,15 @@
         state: present
       become: false
 
-    # - name: Add cron job to run gickup daily, at 0200.
-    #   ansible.builtin.cron:
-    #     name: Run gickup script.
-    #     minute: "0"
-    #     hour: "2"
-    #     weekday: "0"
-    #     job: /home/pi/gickup.sh
-    #     state: present
-    #   become: false
+    - name: Add cron job to run gickup weekly, at 0100 on Sundays.
+      ansible.builtin.cron:
+        name: Run gickup script.
+        minute: "0"
+        hour: "1"
+        weekday: "0"
+        job: /home/pi/gickup.sh
+        state: present
+      become: false
 
     # System setup tasks.
     - name: Ensure PoE fans on Pi are set correctly.
