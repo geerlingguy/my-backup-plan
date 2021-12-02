@@ -5,10 +5,15 @@
   vars_files:
     - config.yml
 
+  pre_tasks:
+    - name: Download and install gickup.
+      ansible.builtin.unarchive:
+        src: https://github.com/cooperspencer/gickup/releases/download/v0.9/gickup_0.9_linux_arm64.tar.gz
+        dest: /usr/local/bin
+        remote_src: true
+
   roles:
     - stefangweichinger.ansible_rclone
-    - geerlingguy.go
-    - gickup
 
   tasks:
     - name: Install mailutils.
@@ -30,7 +35,6 @@
       ansible.builtin.file:
         path: "/Volumes/{{ item }}"
         state: directory
-        recurse: true
       loop: "{{ cifs_volumes }}"
 
     - name: Mount SMB volumes.
