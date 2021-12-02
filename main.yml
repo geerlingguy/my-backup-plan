@@ -42,7 +42,7 @@
         src: "//{{ cifs_server }}/{{ item }}"
         path: "/Volumes/{{ item }}"
         fstype: cifs
-        opts: 'username={{ cifs_username }},password={{ cifs_password }}'
+        opts: 'uid=pi,mfsymlinks,username={{ cifs_username }},password={{ cifs_password }}'
         state: mounted
       loop: "{{ cifs_volumes }}"
 
