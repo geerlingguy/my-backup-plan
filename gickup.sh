@@ -22,15 +22,7 @@
 #   local:
 #     - path: "/Volumes/Git-Backups"
 # ```
-
 GICKUP=/usr/local/bin/gickup
-KNOWN_HOSTS=~/.ssh/known_hosts
-
-# Make sure a known_hosts file exists.
-if [ ! -f "$KNOWN_HOSTS" ]; then
-  echo 'Generating known_hosts file.'
-  ssh-keyscan github.com >> $KNOWN_HOSTS
-fi
 
 # Check if gickup is installed.
 if ! [ -x "$(command -v $GICKUP)" ]; then
