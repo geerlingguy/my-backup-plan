@@ -12,16 +12,24 @@
 # source:
 #   github:
 #     - token: [redacted]  # generate an personal access token in dev settings
-#       user: geerlingguy
 #       username: geerlingguy
 #       ssh: true
 #       sshkey: /home/pi/.ssh/id_ed25519  # must be added to your GitHub account
 #       exclude:
 #         - linux
+#       excludeorgs:
+#         - ansible-community
+#         - operator-framework
+#         - ansible-collections
+#         - GitHub-Stars
 # destination:
 #   local:
 #     - path: "/Volumes/Git-Backups"
 # ```
+#
+# For the Personal Access Token, make sure you add the entire `repo` scope if
+# you want to replicate private repositories.
+
 GICKUP=/usr/local/bin/gickup
 
 # Check if gickup is installed.

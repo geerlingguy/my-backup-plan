@@ -142,9 +142,9 @@ Do all of this as the `pi` user (or whatever user you're going to configure to r
 
 I also avoid keeping the entire `gickup` config in this repository. Sosumi.
 
-After running the playbook, you'll need to add a Gickup config file named `~/.gickup.yml`, with contents as seen in the `gickup.sh` file's documentation.
+After running the playbook, you'll need to add a Gickup config file named `~/.gickup.yml`, with contents as seen in top of the `gickup.sh` file.
 
-You will also need to make sure an SSH key has been added to your GitHub account so the backup server can access GitHub, and you should create a Personal Access Token and paste the token contents in where indicated.
+You will also need to make sure an SSH key has been added to your GitHub account so the backup server can access GitHub, and you should create a Personal Access Token and paste the token where indicated.
 
 Do all of this as the `pi` user (or whatever user you're going to configure to run the backups).
 
