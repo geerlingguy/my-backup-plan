@@ -7,6 +7,7 @@ cifs_server: my.smb.server
 cifs_volumes:
   - "Media"
   - "Another Volume"
+  - "Yet Another"
 
 # SMB credentials.
 cifs_username: backup
