@@ -123,7 +123,6 @@ But I'm happy with Glacier, because for a backup that's 8TB and growing, I only 
 
   - End-to-End encryption: Some backups and some transports are not fully encrypted. I'd like to change that.
   - Complete Disaster Recovery plans: Some backups have only been hand-checked, and I don't currently have a complete (and _tested_) plan for the restore process. Trying to recover data the first time in an emergency is a recipe for accidentally making things worse.
-  - Cloning organizational repos: I am currently only cloning GitHub repositories in the `geerlingguy` namespace. I would also like to clone repos from my other GitHub organizations using Gickup. Follow [Issue #5](https://github.com/geerlingguy/my-backup-plan/issues/5) for progress.
 
 ## `main.yml` - Ansible playbook to configure my Backup Pi
 
@@ -189,9 +188,8 @@ The initial clone of all repositories takes an hour or two, but once complete, r
 
 Caveats with Gickup:
 
-  1. You can't currently have Gickup delete repos that were deleted in the GitHub account. They just get left hanging.
+  1. You can't currently have Gickup prune repos that were deleted in the GitHub account.
   2. Cloning large repos (multiple GB) will cause the OOM killer to kill the process if running on a lower-memory Pi.
-  3. Private repos are currently not supported. See [#16 - How do I also clone private repositories?](https://github.com/cooperspencer/gickup/issues/16).
 
 ## Retriving content from S3 Glacier Deep Archive
 
