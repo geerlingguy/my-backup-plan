@@ -10,6 +10,8 @@ Having a solid and multi-tiered backup plan gives you peace of mind and the free
 
 I follow a variant of the 3-2-1 backup strategy, and have _at least_:
 
+![3-2-1 backup plan](images/3-2-1-backup.jpeg)
+
 ```
 3 Copies of all my data
 2 Copies on different storage media
@@ -26,7 +28,11 @@ TODO: Link to video here.
 
 ## Backup Strategy
 
-I have a lot of data I care about, and so I'll go through each type of data, and how I back it up:
+I have a lot of data I care about, but to make sure I covered _everything_, I took a data inventory and grouped everything into six main categories:
+
+![My data inventory](images/data-inventory.jpeg)
+
+I'll go through each type of data, and how I back it up:
 
 ### iCloud Photo Library
 
@@ -101,6 +107,8 @@ For every video I create (for YouTube and elsewhere), I create a folder, create 
 I typically work on the video locally on my Mac mini until it's complete, relying on hourly Time Machine backups to store all the footage over on my NAS.
 
 But once complete, I copy a datestamped project folder over to the NAS, and then eventually delete that project folder off my Mac. At that point, there is only one copy in existence, and that makes me nervous.
+
+![Backup Raspberry Pi](images/backup-pi.jpg)
 
 To help alleviate my nerves, I maintain two backups:
 
