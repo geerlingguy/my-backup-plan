@@ -25,14 +25,6 @@ bandwidth_limit=23M
 # Make sure bucket exists.
 $RCLONE mkdir $rclone_remote:$rclone_s3_bucket
 
-# TODO
-# Back up "Video Projects" directory from Jeff's Mac mini.
-#
-# Also, consider having a bit in this script which auto-mounts the volume if it
-# isn't already mounted (using whatever macOS terminal command is necessary).
-#
-# Example: `open 'smb://username:password@server/share'`
-
 # List of directories to clone. MUST be absolute path, beginning with /.
 declare -a dirs=(
   "/Volumes/Brachiosaur/App Data"
