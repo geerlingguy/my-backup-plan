@@ -24,7 +24,7 @@ And for some of my data (like the contents of my Dropbox or iCloud Photos Librar
 
 I made a video about my backup plan in late 2021, you can watch it for a good overview:
 
-TODO: Link to video here.
+[Backups: You're doing 'em wrong!](https://www.youtube.com/watch?v=S0KZ5iXTkzg) (YouTube, Dec 2021)
 
 ## Backup Strategy
 
