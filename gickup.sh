@@ -22,6 +22,7 @@
 #         - operator-framework
 #         - ansible-collections
 #         - GitHub-Stars
+#         - Diodes-Delight
 # destination:
 #   local:
 #     - path: "/Volumes/Git-Backups"
