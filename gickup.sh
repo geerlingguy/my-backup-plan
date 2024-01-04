@@ -23,6 +23,7 @@
 #         - ansible-collections
 #         - GitHub-Stars
 #         - Diodes-Delight
+#         - raspberrypi
 # destination:
 #   local:
 #     - path: "/Volumes/Git-Backups"

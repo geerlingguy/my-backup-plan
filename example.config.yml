@@ -14,4 +14,4 @@ cifs_username: backup
 cifs_password: ""
 
 # Other setup vars.
-gickup_version: "0.9.1"
+gickup_version: "0.10.26"
