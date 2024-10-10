@@ -19,8 +19,7 @@ fi
 # Variables.
 rclone_remote=personal
 rclone_s3_bucket=jg-archive
-show_progress=true
-bandwidth_limit=23M
+bandwidth_limit=100M
 
 # Make sure bucket exists.
 $RCLONE mkdir $rclone_remote:$rclone_s3_bucket
