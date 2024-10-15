@@ -16,6 +16,11 @@ if ! [ -x "$(command -v $RCLONE)" ]; then
   exit 1
 fi
 
+# Don't run if an instance of rclone is already running.
+if ps -ef | grep -v grep | grep rclone ; then
+  exit 0
+fi
+
 # Variables.
 rclone_remote=personal
 rclone_s3_bucket=jg-archive
