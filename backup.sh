@@ -34,7 +34,6 @@ declare -a dirs=(
   "/Volumes/Brachiosaur/App Data"
   "/Volumes/Brachiosaur/Presentation Recordings"
   "/Volumes/Brachiosaur/Timelapses"
-  "/Volumes/Brachiosaur/YouTube Videos"
   "/Volumes/Brachiosaur/Old School Files"
   "/Volumes/Brachiosaur/Old Websites"
   "/Volumes/Media/Movies"
