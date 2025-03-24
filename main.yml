@@ -12,6 +12,16 @@
         dest: /usr/local/bin
         remote_src: true
 
+    - name: Disable IPv6 for now (solves some connectivity issues).
+      ansible.builtin.blockinfile:
+        path: /etc/sysctl.conf
+        block: |
+          net.ipv6.conf.all.disable_ipv6 = 1
+          net.ipv6.conf.default.disable_ipv6 = 1
+          net.ipv6.conf.lo.disable_ipv6 = 1
+        insertafter: EOF
+        state: present
+
   roles:
     - stefangweichinger.ansible_rclone
 
