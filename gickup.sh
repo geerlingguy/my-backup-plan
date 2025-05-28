@@ -17,13 +17,19 @@
 #       sshkey: /home/pi/.ssh/id_ed25519  # must be added to your GitHub account
 #       exclude:
 #         - linux
+#         - mm-backup
 #       excludeorgs:
+#         - ahmadexp
 #         - ansible-community
 #         - operator-framework
 #         - ansible-collections
 #         - GitHub-Stars
 #         - Diodes-Delight
+#         - CylentKnight
+#         - Homebrew
 #         - raspberrypi
+#         - roobixx
+#         - Time-Appliances-Project
 # destination:
 #   local:
 #     - path: "/Volumes/Git-Backups"
